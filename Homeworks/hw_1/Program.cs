@@ -42,18 +42,40 @@
 
 // 4 -> да; -3 -> нет; 7 -> нет
 
-Console.WriteLine("Input a number: ");
-int num = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a number: ");
+// int num = Convert.ToInt32(Console.ReadLine());
 
-if (num % 2 == 0)
-{
-    Console.WriteLine($"{num} IS even.");
-}
-else 
-    Console.WriteLine($"{num} is NOT even.");
+// if (num % 2 == 0)
+// {
+//     Console.WriteLine($"{num} IS even.");
+// }
+// else 
+//     Console.WriteLine($"{num} is NOT even.");
 
 
 // Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+// 5 -> 2, 4; 8 -> 2, 4, 6, 8
 
-// 5 -> 2, 4
-// 8 -> 2, 4, 6, 8
+// Способ 1:
+// Console.Write("Input a number: ");
+// int N = Convert.ToInt32(Console.ReadLine());
+// int num = 2;
+
+// while (num <= N)
+// {
+//     Console.Write($"{num} ");
+//     num += 2;
+// }
+// Console.WriteLine();
+
+// Способ 2:
+Console.Write("Input a number: ");
+int N = Convert.ToInt32(Console.ReadLine());
+int num = 2;
+
+while (num <= N)
+{
+    if (num % 2 == 0) Console.Write($"{num} ");
+    num += 1;
+}
+Console.WriteLine();
