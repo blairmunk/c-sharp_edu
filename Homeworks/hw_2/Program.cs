@@ -3,7 +3,15 @@
 // 782 -> 8
 // 918 -> 1
 
-
+Console.Write("Input 3-digit number: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    int secondDigit = -1;
+    while ( num > 99)
+    {
+        num /= 10;
+        secondDigit = num % 10;
+    }
+    Console.WriteLine(secondDigit);
 
 // Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 // 645 -> 5
