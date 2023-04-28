@@ -20,3 +20,8 @@
 
 Console.Write("Input a number: ");
 int num = Convert.ToInt32(Console.ReadLine());
+for (int i = 1; i <= num; i++)
+{
+    Console.Write($"{i*i*i} ");
+}
+Console.WriteLine();
