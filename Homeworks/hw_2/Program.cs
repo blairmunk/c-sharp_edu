@@ -3,22 +3,36 @@
 // 782 -> 8
 // 918 -> 1
 
-Console.Write("Input 3-digit number: ");
-    int num = Convert.ToInt32(Console.ReadLine());
-    int secondDigit = -1;
-    while ( num > 99)
-    {
-        num /= 10;
-        secondDigit = num % 10;
-    }
-    Console.WriteLine(secondDigit);
+// Console.Write("Input 3-digit number: ");
+//     int num = Convert.ToInt32(Console.ReadLine());
+//     int secondDigit = -1;
+//     while ( num > 99)
+//     {
+//         num /= 10;
+//         secondDigit = num % 10;
+//     }
+//     Console.WriteLine($"The second digit of this number is {secondDigit}");
 
 // Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 // 645 -> 5
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
+Console.Write("Input a number: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    int thirdDigit = -1;
+    while ( num > 99 )
+    {
+        thirdDigit = num % 10;
+        num /= 10;
+    }
 
+    if (thirdDigit != -1)
+    {
+        Console.WriteLine($"The third digit of this number is {thirdDigit}");    
+    }
+    else
+        Console.WriteLine("The third digit doesn't exist");
 
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 // 6 -> да
