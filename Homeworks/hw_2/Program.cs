@@ -40,7 +40,7 @@
 // 1 -> нет
 
 Console.Write("Input number in the range 1..7: ");
-    int num = Convert.ToInt32(Console.ReadLine());
+int num = Convert.ToInt32(Console.ReadLine());
 
     if (num >= 1 && num <= 5)
     {
