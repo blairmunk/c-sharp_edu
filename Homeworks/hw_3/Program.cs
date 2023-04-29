@@ -31,24 +31,24 @@
 // Console.WriteLine(isPalindrome);
 
 
-Console.Write("Input a 5-digit number: ");
-int number = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a 5-digit number: ");
+// int number = Convert.ToInt32(Console.ReadLine());
 
-bool isPalindrome = true;
-int deadNumber = number;
-for (int i = 1; i <= digits/2; i++)
-{
-    Console.WriteLine((number / 10));
-    Console.WriteLine(deadNumber % 10);
-    if ( (number / Math.Pow(10, digits - i))%10 != deadNumber % 10 )
-        {
-            isPalindrome = false;
-            break;
-        }
-    deadNumber /= 10;
-}
+// bool isPalindrome = true;
+// int deadNumber = number;
+// for (int i = 1; i <= digits/2; i++)
+// {
+//     Console.WriteLine((number / 10));
+//     Console.WriteLine(deadNumber % 10);
+//     if ( (number / Math.Pow(10, digits - i))%10 != deadNumber % 10 )
+//         {
+//             isPalindrome = false;
+//             break;
+//         }
+//     deadNumber /= 10;
+// }
 
-Console.WriteLine(isPalindrome);
+// Console.WriteLine(isPalindrome);
 
 
 
@@ -78,10 +78,16 @@ Console.WriteLine(isPalindrome);
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 
-// Console.Write("Input a number: ");
-// int num = Convert.ToInt32(Console.ReadLine());
-// for (int i = 1; i <= num; i++)
-// {
-//     Console.Write($"{i*i*i} ");
-// }
-// Console.WriteLine();
+int GetCube(int num)
+{
+    for (int i = 1; i <= num; i++)
+    {
+        Console.Write($"{i*i*i} ");
+    }
+    Console.WriteLine();
+    return 0;
+}
+
+Console.Write("Input a number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+GetCube(num);
