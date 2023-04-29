@@ -39,14 +39,13 @@
 // 7 -> да
 // 1 -> нет
 
-Console.Write("Input number in the range 1..7: ");
-int num = Convert.ToInt32(Console.ReadLine());
-
-    if (num >= 1 && num <= 5)
+void WhatsADay(int day)
+{
+    if (day >= 1 && day <= 5)
     {
         Console.WriteLine("It's a workday");    
     }
-    else if (num <= 7 && num >= 6) 
+    else if (day <= 7 && day >= 6) 
     {
         Console.WriteLine("It's a weekend day");
     }    
@@ -54,4 +53,10 @@ int num = Convert.ToInt32(Console.ReadLine());
     {
         Console.WriteLine("You're out of range");
     }
+}
+
+Console.Write("Input number in the range 1..7: ");
+int day = Convert.ToInt32(Console.ReadLine());
+WhatsADay(day);
+
 
