@@ -18,7 +18,7 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-int GetThirdDigit(int num)
+void GetThirdDigit(int num)
 {
     int thirdDigit = -1;
     while ( num > 99 )
