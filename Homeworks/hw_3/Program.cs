@@ -2,53 +2,9 @@
 // Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 // 14212 -> нет; 12821 -> да; 23432 -> да
 
-bool IsPalindrome(int num)
-{
-    int digits = 5;
-    int tempNumber = num;
-    for (int i = 1; i <= digits/2; i++)
-    {
-        int leftDigit = (int)((num / Math.Pow(10, digits - i))%10);
-        int rightDigit = tempNumber % 10;
-        if (leftDigit != rightDigit)
-        {  
-            return false;
-        }
-        tempNumber /= 10;
-    }
-    return true;
-}
-
-Console.Write("Input a 5-digit number: ");
-int number = Convert.ToInt32(Console.ReadLine());
-
-if (number / 10000 == 0 || number / 10000 >= 10) 
-{
-    Console.WriteLine("Your number isn't 5-digit. Repeat your input");
-    return;
-}
-
-if (IsPalindrome(number)) Console.WriteLine("It is a palindrome");
-else Console.WriteLine("It's NOT a palindrome");
-
-// Задача 19 (Для любого числа из диапазона int)
-// Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
-// 14212 -> нет; 12821 -> да; 23432 -> да
-
-// int CountDigitNumber(int num)
-// {   
-//     int digits = 0;
-//     while (num != 0)
-//     {
-//         digits++;
-//         num /= 10;
-//     }
-//     return digits;
-// }
-
 // bool IsPalindrome(int num)
 // {
-//     int digits = CountDigitNumber(num);
+//     int digits = 5;
 //     int tempNumber = num;
 //     for (int i = 1; i <= digits/2; i++)
 //     {
@@ -66,8 +22,54 @@ else Console.WriteLine("It's NOT a palindrome");
 // Console.Write("Input a 5-digit number: ");
 // int number = Convert.ToInt32(Console.ReadLine());
 
+// if (number / 10000 == 0 || number / 10000 >= 10) 
+// {
+//     Console.WriteLine("Your number isn't 5-digit. Repeat your input");
+//     return;
+// }
+
 // if (IsPalindrome(number)) Console.WriteLine("It is a palindrome");
 // else Console.WriteLine("It's NOT a palindrome");
+
+
+
+// Задача 19 (Для любого числа из диапазона int)
+// Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+// 14212 -> нет; 12821 -> да; 23432 -> да
+
+// int CountDigitNumber(int num)
+// {   
+//     int digits = 0;
+//     while (num != 0)
+//     {
+//         digits++;
+//         num /= 10;
+//     }
+//     return digits;
+// }
+// bool IsPalindrome(int num)
+// {
+//     int digits = CountDigitNumber(num);
+//     int tempNumber = num;
+//     for (int i = 1; i <= digits/2; i++)
+//     {
+//         int leftDigit = (int)((num / Math.Pow(10, digits - i))%10);
+//         int rightDigit = tempNumber % 10;
+//         if (leftDigit != rightDigit)
+//         {  
+//             return false;
+//         }
+//         tempNumber /= 10;
+//     }
+//     return true;
+// }
+// Console.Write("Input a number: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+
+// if (IsPalindrome(number)) Console.WriteLine("It is a palindrome");
+// else Console.WriteLine("It's NOT a palindrome");
+
+
 
 // Задача 21
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
@@ -93,21 +95,22 @@ else Console.WriteLine("It's NOT a palindrome");
 // Console.WriteLine($"Distance between A({x1},{y1},{z1}) and B({x2},{y2},{z2}) points is: {dist}");
 
 
+
 // Задача 23
 // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 
-// int GetCube(int num)
-// {
-//     for (int i = 1; i <= num; i++)
-//     {
-//         Console.Write($"{i*i*i} ");
-//     }
-//     Console.WriteLine();
-//     return 0;
-// }
+int GetCube(int num)
+{
+    for (int i = 1; i <= num; i++)
+    {
+        Console.Write($"{i*i*i} ");
+    }
+    Console.WriteLine();
+    return 0;
+}
 
-// Console.Write("Input a number: ");
-// int num = Convert.ToInt32(Console.ReadLine());
-// GetCube(num);
+Console.Write("Input a number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+GetCube(num);
