@@ -8,12 +8,21 @@ int Expon(int bas, int exp)
     return result;
 }
 
-Console.Write("Input two numbers: ");
-int bas = Convert.ToInt32(Console.ReadLine());
-int exp = Convert.ToInt32(Console.ReadLine());
+bool resume = true;
 
-Console.WriteLine($"Your result is {Expon(bas, exp)}");
-
+while (resume == true)
+{
+    Console.Write("Input two numbers: ");
+    int bas = Convert.ToInt32(Console.ReadLine());
+    int exp = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine($"Your result is {Expon(bas, exp)}");
+    Console.WriteLine("Do you want to repeat? (Y/n)");
+    string repeat = Convert.ToString(Console.ReadLine());
+    if (repeat == "n")
+    {
+        resume = false;
+    } 
+}
 
 
 // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
