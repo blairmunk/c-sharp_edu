@@ -17,7 +17,7 @@ while (resume == true)
     int exp = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine($"Your result is {Expon(bas, exp)}");
     Console.WriteLine("Do you want to repeat? (Y/n)");
-    string repeat = Convert.ToString(Console.ReadLine());
+    string repeat = Console.ReadLine();
     if (repeat == "n")
     {
         resume = false;
