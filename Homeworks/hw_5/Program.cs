@@ -44,46 +44,46 @@
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
 // [3, 7, 23, 12] -> 19; [-4, -6, 89, 6] -> 0
 
-int[] CreateRandomArray(int size, int minValue, int maxValue)
-{
-    int[] newArray = new int[size];
-    for (int i = 0; i < size; i++)
-    {
-        newArray[i] = new Random().Next(minValue, maxValue + 1);
-    }
-    return newArray;
-}
+// int[] CreateRandomArray(int size, int minValue, int maxValue)
+// {
+//     int[] newArray = new int[size];
+//     for (int i = 0; i < size; i++)
+//     {
+//         newArray[i] = new Random().Next(minValue, maxValue + 1);
+//     }
+//     return newArray;
+// }
 
-void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
-    Console.WriteLine();
-}
+// void PrintArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write(array[i] + " ");
+//     }
+//     Console.WriteLine();
+// }
 
-void SumOddElement(int[] array)
-{
-    int sumNums = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (i % 2 == 1) sumNums += array[i];
-    }
-    Console.WriteLine($"Sum of odd elements is {sumNums}");
-}
+// void SumOddElement(int[] array)
+// {
+//     int sumNums = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (i % 2 == 1) sumNums += array[i];
+//     }
+//     Console.WriteLine($"Sum of odd elements is {sumNums}");
+// }
 
-Console.WriteLine("Input size value of array: ");
-int size = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input minimal value of element");
-int minValue = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input maximal value of element");
-int maxValue = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input size value of array: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input minimal value of element");
+// int minValue = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input maximal value of element");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
 
-int[] myArray = CreateRandomArray(size, minValue, maxValue);
+// int[] myArray = CreateRandomArray(size, minValue, maxValue);
 
-PrintArray(myArray);
-SumOddElement(myArray);
+// PrintArray(myArray);
+// SumOddElement(myArray);
 
 
 
@@ -91,9 +91,6 @@ SumOddElement(myArray);
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
 
-// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
-// [3, 7, 23, 12] -> 19; [-4, -6, 89, 6] -> 0
-
 int[] CreateRandomArray(int size, int minValue, int maxValue)
 {
     int[] newArray = new int[size];
@@ -113,14 +110,30 @@ void PrintArray(int[] array)
     Console.WriteLine();
 }
 
-void SumOddElement(int[] array)
+int FindMaxValue(int[] array)
 {
-    int sumNums = 0;
+    int max = int.MinValue;
     for (int i = 0; i < array.Length; i++)
     {
-        if (i % 2 == 1) sumNums += array[i];
+        if (array[i] > max)
+        {
+            max = array[i];
+        }
     }
-    Console.WriteLine($"Sum of odd elements is {sumNums}");
+    return max;
+}
+
+int FindMinValue(int[] array)
+{
+    int min = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] < min)
+        {
+            min = array[i];
+        }
+    }
+    return min;
 }
 
 Console.WriteLine("Input size value of array: ");
@@ -133,4 +146,5 @@ int maxValue = Convert.ToInt32(Console.ReadLine());
 int[] myArray = CreateRandomArray(size, minValue, maxValue);
 
 PrintArray(myArray);
-SumOddElement(myArray);
+Console.WriteLine($"The difference of max and min elements is {FindMaxValue(myArray) - FindMinValue(myArray)}");
+
