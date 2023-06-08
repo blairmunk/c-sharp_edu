@@ -90,7 +90,6 @@
 
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
-
 int[] CreateRandomArray(int size, int minValue, int maxValue)
 {
     int[] newArray = new int[size];
@@ -100,7 +99,6 @@ int[] CreateRandomArray(int size, int minValue, int maxValue)
     }
     return newArray;
 }
-
 void PrintArray(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
@@ -109,7 +107,6 @@ void PrintArray(int[] array)
     }
     Console.WriteLine();
 }
-
 int FindMaxValue(int[] array)
 {
     int max = int.MinValue;
@@ -122,7 +119,6 @@ int FindMaxValue(int[] array)
     }
     return max;
 }
-
 int FindMinValue(int[] array)
 {
     int min = array[0];
@@ -135,7 +131,6 @@ int FindMinValue(int[] array)
     }
     return min;
 }
-
 Console.WriteLine("Input size value of array: ");
 int size = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input minimal value of element");
