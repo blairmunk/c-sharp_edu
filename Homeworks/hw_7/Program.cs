@@ -53,7 +53,66 @@
 // 17 -> такого числа в массиве нет
 
 
-void PrintArray(int[,] matr)
+// void PrintArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 Console.Write($"{matr[i, j]} ");        
+//             }
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// void FillArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 matr[i,j] = new Random().Next(1, 10);        
+//             }
+//         }
+//     }
+// }
+
+// void CheckIndex(int[,] matr, int m, int n)
+// {
+//     if (m < matr.GetLength(0) && n < matr.GetLength(1)) Console.WriteLine($"This element is {matr[m,n]}");
+//     else Console.WriteLine("This element doesn't exist");
+// }
+
+
+// int[,] CreateMatrix()
+// {
+//     int[,] matr = new int[3, 5];
+//     return matr;
+// }
+
+// int[,] matrix = CreateMatrix();
+// FillArray(matrix);
+// PrintArray(matrix);
+
+// Console.WriteLine("Input position of your matrix:");
+// Console.Write("i = ");
+// int i = Convert.ToInt32(Console.ReadLine());
+// Console.Write("j = ");
+// int j = Convert.ToInt32(Console.ReadLine());
+
+// CheckIndex(matrix, i, j);
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+void PrintTwoDimArray(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
     {
@@ -67,25 +126,44 @@ void PrintArray(int[,] matr)
     }
 }
 
-void FillArray(int[,] matr)
+void PrintOneDimArray(double[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write($"{arr[i]}; ");        
+    }
+    Console.WriteLine();
+
+}
+
+void FillArrayManual(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
             {
-                matr[i,j] = new Random().Next(1, 10);        
+                Console.Write($"Input element ({i},{j}): ");
+                matr[i,j] = Convert.ToInt32(Console.ReadLine());        
             }
         }
     }
 }
 
-void CheckIndex(int[,] matr, int m, int n)
+double[] FindColumnAverage(int[,] matr)
 {
-    if (m < matr.GetLength(0) && n < matr.GetLength(1)) Console.WriteLine($"This element is {matr[m,n]}");
-    else Console.WriteLine("This element doesn't exist");
+    double[] colAverage = new double[matr.GetLength(1)];
+    for (int j = 0; j < matr.GetLength(1); j++)
+    {
+        int sum = 0;
+        for (int i = 0; i < matr.GetLength(0); i++)
+        {
+            sum += matr[i,j]; 
+        }
+        colAverage[j] = Math.Round((double) sum / matr.GetLength(0), 1);  
+    }
+    return colAverage;
 }
-
 
 int[,] CreateMatrix()
 {
@@ -94,24 +172,11 @@ int[,] CreateMatrix()
 }
 
 int[,] matrix = CreateMatrix();
-FillArray(matrix);
-PrintArray(matrix);
-
-Console.WriteLine("Input position of your matrix:");
-Console.Write("i = ");
-int i = Convert.ToInt32(Console.ReadLine());
-Console.Write("j = ");
-int j = Convert.ToInt32(Console.ReadLine());
-
-CheckIndex(matrix, i, j);
-
-// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
-
+FillArrayManual(matrix);
+PrintTwoDimArray(matrix);
+Console.WriteLine();
+Console.WriteLine("Average of columns is:");
+PrintOneDimArray(FindColumnAverage(matrix));
 
 
 // 
