@@ -8,6 +8,44 @@
 // 9 5 3 2
 // 8 4 4 2
 
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            {
+                Console.Write($"{matr[i, j]} ");        
+            }
+        }
+        Console.WriteLine();
+    }
+}
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            {
+                matr[i,j] = new Random().Next(1, 10);        
+            }
+        }
+    }
+}
+
+int[,] CreateMatrix()
+{
+    int[,] matr = new int[4, 4];
+    return matr;
+}
+
+
+
+int[,] matrix = CreateMatrix();
+FillArray(matrix);
+PrintArray(matrix);
+
 
 
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
@@ -47,68 +85,68 @@
 // 11 16 15 06
 // 10 09 08 07
 
-void PrintTwoDimTextArray(int[,] matr)
-{
-    string fmt = "00";
-    for (int i = 0; i < matr.GetLength(0); i++)
-    {
-        for (int j = 0; j < matr.GetLength(1); j++)
-        {
-            {
-                Console.Write($"{matr[i, j].ToString(fmt)} ");        
-            }
-        }
-        Console.WriteLine();
-    }    
-}
+// void PrintTwoDimTextArray(int[,] matr)
+// {
+//     string fmt = "00";
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 Console.Write($"{matr[i, j].ToString(fmt)} ");        
+//             }
+//         }
+//         Console.WriteLine();
+//     }    
+// }
 
-int[,] GetSpiral(int[,] arr)
-{
-    int imin = 0;
-    int imax = arr.GetLength(0) - 1;
-    int jmin = 0;
-    int jmax = arr.GetLength(1) - 1;
-    int num = 1;
-    int i = imin;
-    int j = jmin;
+// int[,] GetSpiral(int[,] arr)
+// {
+//     int imin = 0;
+//     int imax = arr.GetLength(0) - 1;
+//     int jmin = 0;
+//     int jmax = arr.GetLength(1) - 1;
+//     int num = 1;
+//     int i = imin;
+//     int j = jmin;
 
-    while (imin <= imax && jmin <= jmax)
-    {
-        for (j = jmin; j <= jmax; j++)
-        {
-            arr[i,j] = num;
-            num += 1;
-        }
-        j -= 1;
-        imin += 1;
+//     while (imin <= imax && jmin <= jmax)
+//     {
+//         for (j = jmin; j <= jmax; j++)
+//         {
+//             arr[i,j] = num;
+//             num += 1;
+//         }
+//         j -= 1;
+//         imin += 1;
 
-        for (i = imin; i <= imax; i++)
-        {
-            arr[i,j] = num;
-            num += 1;
-        }
-        i -= 1;
-        jmax -= 1;
+//         for (i = imin; i <= imax; i++)
+//         {
+//             arr[i,j] = num;
+//             num += 1;
+//         }
+//         i -= 1;
+//         jmax -= 1;
 
-        for (j = jmax; j >= jmin; j--)
-        {
-            arr[i,j] = num;
-            num += 1;
-        }
-        j += 1;
-        imax -= 1;
+//         for (j = jmax; j >= jmin; j--)
+//         {
+//             arr[i,j] = num;
+//             num += 1;
+//         }
+//         j += 1;
+//         imax -= 1;
         
-        for (i = imax; i >= imin; i--)
-        {
-            arr[i,j] = num;
-            num += 1;
-        }
-        i += 1;
-        jmin += 1;
-    }
-    return arr;
-}
+//         for (i = imax; i >= imin; i--)
+//         {
+//             arr[i,j] = num;
+//             num += 1;
+//         }
+//         i += 1;
+//         jmin += 1;
+//     }
+//     return arr;
+// }
 
-int[,] matrix = new int[4,4];
+// int[,] matrix = new int[4,4];
 
-PrintTwoDimTextArray(GetSpiral(matrix));
+// PrintTwoDimTextArray(GetSpiral(matrix));
