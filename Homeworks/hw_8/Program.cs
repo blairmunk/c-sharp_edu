@@ -40,11 +40,44 @@ int[,] CreateMatrix()
     return matr;
 }
 
+int findSmallestPosition(int[,] matr, int startPosition, int rowIndex)
+{
+	int smallestPosition = startPosition;
+	
+	for(int j = startPosition; j < matr.GetLength(1); j++)
+	{
+		if(matr[rowIndex,j] < matr[rowIndex,smallestPosition])
+			smallestPosition = j;
+	}
+	return smallestPosition;
+}
 
+void selectionSort(int[,] matr, int rowIndex)
+{
+	for(int j = 0; j < matr.GetLength(1); j++)
+	{
+		int smallestPosition = findSmallestPosition(matr, j, rowIndex);
+		int temp = matr[rowIndex,j];
+        matr[rowIndex,j] = matr[rowIndex,smallestPosition];
+        matr[rowIndex,smallestPosition] = temp;
+	}
+}
+
+void SortRows(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        selectionSort(matr, i);
+    }
+}
 
 int[,] matrix = CreateMatrix();
 FillArray(matrix);
 PrintArray(matrix);
+SortRows(matrix);
+Console.WriteLine();
+PrintArray(matrix);
+
 
 
 
