@@ -119,9 +119,45 @@ int[,] CreateMatrix()
     return matr;
 }
 
+int SumRow(int[,] matr, int rowIndex)
+{
+    int sum = Int32.MinValue;
+    for (int j = 0; j < matr.GetLength(1); j++)
+        sum += matr[rowIndex,j];
+    return sum;
+}
+
+int[] GetSummedArray(int[,] matr)
+{
+    int[] arr = new int[matr.GetLength(0)];
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        arr[i] = SumRow(matr,i);
+    }
+    return arr;
+}
+
+int GetIndexOfMin(int[] arr)
+{
+    int indexOfMin = 0;
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] < arr[i-1])
+            indexOfMin = i;
+    }
+    return indexOfMin;
+}
+
+void GetMessage(int indexOfRow)
+{
+    Console.WriteLine($"Row #{indexOfRow+1} contains minimal sum");
+}
+
 int[,] matrix = CreateMatrix();
 FillArray(matrix);
 PrintArray(matrix);
+Console.WriteLine();
+GetMessage(GetIndexOfMin(GetSummedArray(matrix)));
 
 
 
