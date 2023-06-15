@@ -87,6 +87,88 @@
 // 5 2 6 7
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
+// void PrintArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 Console.Write($"{matr[i, j]} ");        
+//             }
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// void FillArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 matr[i,j] = new Random().Next(1, 10);        
+//             }
+//         }
+//     }
+// }
+
+// int[,] CreateMatrix()
+// {
+//     int[,] matr = new int[4, 4];
+//     return matr;
+// }
+
+// int SumRow(int[,] matr, int rowIndex)
+// {
+//     int sum = Int32.MinValue;
+//     for (int j = 0; j < matr.GetLength(1); j++)
+//         sum += matr[rowIndex,j];
+//     return sum;
+// }
+
+// int[] GetSummedArray(int[,] matr)
+// {
+//     int[] arr = new int[matr.GetLength(0)];
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         arr[i] = SumRow(matr,i);
+//     }
+//     return arr;
+// }
+
+// int GetIndexOfMin(int[] arr)
+// {
+//     int indexOfMin = 0;
+//     for (int i = 1; i < arr.Length; i++)
+//     {
+//         if (arr[i] < arr[i-1])
+//             indexOfMin = i;
+//     }
+//     return indexOfMin;
+// }
+
+// void GetMessage(int indexOfRow)
+// {
+//     Console.WriteLine($"Row #{indexOfRow+1} contains minimal sum");
+// }
+
+// int[,] matrix = CreateMatrix();
+// FillArray(matrix);
+// PrintArray(matrix);
+// Console.WriteLine();
+// GetMessage(GetIndexOfMin(GetSummedArray(matrix)));
+
+
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
 void PrintArray(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -115,60 +197,51 @@ void FillArray(int[,] matr)
 
 int[,] CreateMatrix()
 {
-    int[,] matr = new int[4, 4];
+    int[,] matr = new int[2, 2];
     return matr;
 }
 
-int SumRow(int[,] matr, int rowIndex)
+int CalcMatrixElement(int[,] matrA, int[,] matrB, int i, int j)
 {
-    int sum = Int32.MinValue;
-    for (int j = 0; j < matr.GetLength(1); j++)
-        sum += matr[rowIndex,j];
-    return sum;
-}
-
-int[] GetSummedArray(int[,] matr)
-{
-    int[] arr = new int[matr.GetLength(0)];
-    for (int i = 0; i < matr.GetLength(0); i++)
+    int cij = 0;
+    for (int r = 0; r < matrA.GetLength(1); r++)
     {
-        arr[i] = SumRow(matr,i);
+        cij += matrA[i,r]*matrB[r,j];
     }
-    return arr;
+    return cij;
+
 }
 
-int GetIndexOfMin(int[] arr)
+
+int[,] ProductOfMatrix(int[,] matrA, int[,] matrB)
 {
-    int indexOfMin = 0;
-    for (int i = 1; i < arr.Length; i++)
+    int[,] matrC = new int[matrA.GetLength(0),matrB.GetLength(1)];
+    for (int i = 0; i < matrC.GetLength(0); i++)
     {
-        if (arr[i] < arr[i-1])
-            indexOfMin = i;
+        for (int j = 0; j < matrC.GetLength(0); j++)
+        {
+            matrC[i,j] = CalcMatrixElement(matrA, matrB, i, j);
+        }
     }
-    return indexOfMin;
+    return matrC;
 }
 
-void GetMessage(int indexOfRow)
-{
-    Console.WriteLine($"Row #{indexOfRow+1} contains minimal sum");
-}
-
-int[,] matrix = CreateMatrix();
-FillArray(matrix);
-PrintArray(matrix);
+int[,] matrixA = CreateMatrix();
+int[,] matrixB = CreateMatrix();
+FillArray(matrixA);
+FillArray(matrixB);
+PrintArray(matrixA);
 Console.WriteLine();
-GetMessage(GetIndexOfMin(GetSummedArray(matrix)));
+PrintArray(matrixB);
+Console.WriteLine();
 
-
-
-// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-// Например, даны 2 матрицы:
-// 2 4 | 3 4
-// 3 2 | 3 3
-// Результирующая матрица будет:
-// 18 20
-// 15 18
-
+if (matrixA.GetLength(1) == matrixB.GetLength(0))
+{
+    int[,] matrixC = ProductOfMatrix(matrixA, matrixB);
+    PrintArray(matrixC);
+}
+else
+    Console.WriteLine("These matriсes are not multipliable");
 
 
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
