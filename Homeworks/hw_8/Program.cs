@@ -169,79 +169,79 @@
 // 18 20
 // 15 18
 
-void PrintArray(int[,] matr)
-{
-    for (int i = 0; i < matr.GetLength(0); i++)
-    {
-        for (int j = 0; j < matr.GetLength(1); j++)
-        {
-            {
-                Console.Write($"{matr[i, j]} ");        
-            }
-        }
-        Console.WriteLine();
-    }
-}
-void FillArray(int[,] matr)
-{
-    for (int i = 0; i < matr.GetLength(0); i++)
-    {
-        for (int j = 0; j < matr.GetLength(1); j++)
-        {
-            {
-                matr[i,j] = new Random().Next(1, 10);        
-            }
-        }
-    }
-}
+// void PrintArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 Console.Write($"{matr[i, j]} ");        
+//             }
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// void FillArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 matr[i,j] = new Random().Next(1, 10);        
+//             }
+//         }
+//     }
+// }
 
-int[,] CreateMatrix()
-{
-    int[,] matr = new int[2, 2];
-    return matr;
-}
+// int[,] CreateMatrix()
+// {
+//     int[,] matr = new int[2, 2];
+//     return matr;
+// }
 
-int CalcMatrixElement(int[,] matrA, int[,] matrB, int i, int j)
-{
-    int cij = 0;
-    for (int r = 0; r < matrA.GetLength(1); r++)
-    {
-        cij += matrA[i,r]*matrB[r,j];
-    }
-    return cij;
+// int CalcMatrixElement(int[,] matrA, int[,] matrB, int i, int j)
+// {
+//     int cij = 0;
+//     for (int r = 0; r < matrA.GetLength(1); r++)
+//     {
+//         cij += matrA[i,r]*matrB[r,j];
+//     }
+//     return cij;
 
-}
+// }
 
 
-int[,] ProductOfMatrix(int[,] matrA, int[,] matrB)
-{
-    int[,] matrC = new int[matrA.GetLength(0),matrB.GetLength(1)];
-    for (int i = 0; i < matrC.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrC.GetLength(0); j++)
-        {
-            matrC[i,j] = CalcMatrixElement(matrA, matrB, i, j);
-        }
-    }
-    return matrC;
-}
+// int[,] ProductOfMatrix(int[,] matrA, int[,] matrB)
+// {
+//     int[,] matrC = new int[matrA.GetLength(0),matrB.GetLength(1)];
+//     for (int i = 0; i < matrC.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrC.GetLength(0); j++)
+//         {
+//             matrC[i,j] = CalcMatrixElement(matrA, matrB, i, j);
+//         }
+//     }
+//     return matrC;
+// }
 
-int[,] matrixA = CreateMatrix();
-int[,] matrixB = CreateMatrix();
-FillArray(matrixA);
-FillArray(matrixB);
-PrintArray(matrixA);
-Console.WriteLine();
-PrintArray(matrixB);
-Console.WriteLine();
+// int[,] matrixA = CreateMatrix();
+// int[,] matrixB = CreateMatrix();
+// FillArray(matrixA);
+// FillArray(matrixB);
+// PrintArray(matrixA);
+// Console.WriteLine();
+// PrintArray(matrixB);
+// Console.WriteLine();
 
-if (matrixA.GetLength(1) == matrixB.GetLength(0))
-{
-    int[,] matrixC = ProductOfMatrix(matrixA, matrixB);
-    PrintArray(matrixC);
-}
-else
-    Console.WriteLine("These matriсes are not multipliable");
+// if (matrixA.GetLength(1) == matrixB.GetLength(0))
+// {
+//     int[,] matrixC = ProductOfMatrix(matrixA, matrixB);
+//     PrintArray(matrixC);
+// }
+// else
+//     Console.WriteLine("These matriсes are not multipliable");
 
 
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
@@ -251,6 +251,66 @@ else
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
+int[,,] CreateMatrix()
+{
+    int[,,] matr = new int[2, 2, 2];
+    return matr;
+}
+
+bool isExist(int[,,] matr, int elem)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            for (int k = 0; k < matr.GetLength(2); k++)
+            {
+                {
+                    if (elem != matr[i,j,k] && elem != 0)
+                        return false;       
+                }
+            }
+        }
+    }
+    return true;
+}
+
+void FillArray(int[,,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            for (int k = 0; k < matr.GetLength(2); k++)
+            {
+                {
+                    while(isExist(matr, matr[i,j,k]))
+                        matr[i,j,k] = new Random().Next(10, 100);      
+                }
+            }
+        }
+    }
+}
+
+void PrintArray(int[,,] matr)
+{
+    for (int k = 0; k < matr.GetLength(0); k++)
+    {
+        for (int i = 0; i < matr.GetLength(1); i++)
+        {
+            for (int j = 0; j < matr.GetLength(1); j++)
+            {
+                Console.Write($"{matr[i, j, k]}({i},{j},{k}) ");   
+            }
+            Console.WriteLine();
+        }
+        
+    }
+}
+
+int[,,] matrix3D = CreateMatrix();
+FillArray(matrix3D);
+PrintArray(matrix3D);
 
 
 
