@@ -8,6 +8,85 @@
 // 9 5 3 2
 // 8 4 4 2
 
+// void PrintArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 Console.Write($"{matr[i, j]} ");        
+//             }
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// void FillArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             {
+//                 matr[i,j] = new Random().Next(1, 10);        
+//             }
+//         }
+//     }
+// }
+
+// int[,] CreateMatrix()
+// {
+//     int[,] matr = new int[4, 4];
+//     return matr;
+// }
+
+// int findSmallestPosition(int[,] matr, int startPosition, int rowIndex)
+// {
+// 	int smallestPosition = startPosition;
+	
+// 	for(int j = startPosition; j < matr.GetLength(1); j++)
+// 	{
+// 		if(matr[rowIndex,j] < matr[rowIndex,smallestPosition])
+// 			smallestPosition = j;
+// 	}
+// 	return smallestPosition;
+// }
+
+// void selectionSort(int[,] matr, int rowIndex)
+// {
+// 	for(int j = 0; j < matr.GetLength(1); j++)
+// 	{
+// 		int smallestPosition = findSmallestPosition(matr, j, rowIndex);
+// 		int temp = matr[rowIndex,j];
+//         matr[rowIndex,j] = matr[rowIndex,smallestPosition];
+//         matr[rowIndex,smallestPosition] = temp;
+// 	}
+// }
+
+// void SortRows(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         selectionSort(matr, i);
+//     }
+// }
+
+// int[,] matrix = CreateMatrix();
+// FillArray(matrix);
+// PrintArray(matrix);
+// SortRows(matrix);
+// Console.WriteLine();
+// PrintArray(matrix);
+
+
+// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
 void PrintArray(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -40,54 +119,9 @@ int[,] CreateMatrix()
     return matr;
 }
 
-int findSmallestPosition(int[,] matr, int startPosition, int rowIndex)
-{
-	int smallestPosition = startPosition;
-	
-	for(int j = startPosition; j < matr.GetLength(1); j++)
-	{
-		if(matr[rowIndex,j] < matr[rowIndex,smallestPosition])
-			smallestPosition = j;
-	}
-	return smallestPosition;
-}
-
-void selectionSort(int[,] matr, int rowIndex)
-{
-	for(int j = 0; j < matr.GetLength(1); j++)
-	{
-		int smallestPosition = findSmallestPosition(matr, j, rowIndex);
-		int temp = matr[rowIndex,j];
-        matr[rowIndex,j] = matr[rowIndex,smallestPosition];
-        matr[rowIndex,smallestPosition] = temp;
-	}
-}
-
-void SortRows(int[,] matr)
-{
-    for (int i = 0; i < matr.GetLength(0); i++)
-    {
-        selectionSort(matr, i);
-    }
-}
-
 int[,] matrix = CreateMatrix();
 FillArray(matrix);
 PrintArray(matrix);
-SortRows(matrix);
-Console.WriteLine();
-PrintArray(matrix);
-
-
-
-
-// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// 5 2 6 7
-// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
 
 
